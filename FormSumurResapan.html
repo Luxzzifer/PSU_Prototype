@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulir Perhitungan Sumur Resapan</title>
+        <link rel="stylesheet" href="Css/Css_PSU.css">
+    </head>
+    <body>
+        <div class="topbar">
+            <h1> PSU</h1>
+            <div class="usern-info">
+                <span> Selamat Datang</span>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <a href="#">Dashboard</a>
+            <a href="FormSumurResapan.html">Sumur Resapan</a>
+            <a href="FormSaluran.html">Saluran</a>
+            <a href="FormJalanPaving.html">Jalan Paving</a>
+        </div>
+        <div class="container">
+            <h2> Formulir Perhitungan Sumur Resapan</h2>
+            <form id="data-form">
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                             <span class="icon">1</span>
+                             <span class="title">Data</span>
+                             <span class="arrow">&#9654;</span>
+                       </div>
+                       <div class="accordion-content">
+                        <form id="data-form" onsubmit="saveFormData(event)">
+                            <label for="luas_lantai"> Total Luas Lantai Bangunan (m²): </label>
+                            <input type="number" id="luas_lantai" name="luas_lantai" required>
+
+                            <label for="diameter_buis">Diameter Buis Beton (cm): </label>
+                            <input type="number" id="diameter_buis" name="diameter_buis" required>
+
+                            <label for="kedalaman"> Kedalaman Sumur Resapan (m): </label>
+                            <input type="number" id="kedalaman" name="kedalaman" required>
+
+                            <label for="jumlah_sumur"> Jumlah Sumur Resapan: </label>
+                            <input type="number" id="jumlah_sumur" name="jumlah_sumur" required readonly>
+
+                    </form>
+                    </div>  
+                </div>
+            </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">2</span>
+                        <span class="title">Rincian Bahan</span>
+                        <span class="arrow">&#9654;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <form>
+                            <label for="harga_beton"> Buis Beton (Rp): </label>
+                            <input type="number" id="harga_beton" name="harga_beton" required >
+
+                            <label for="harga_batu"> Batu Koson (Rp): </label>
+                            <input type="number" id="harga_batu" name="harga_batu" required >
+
+                            <label for="harga_kerikil"> Kerikil (Rp): </label>
+                            <input type="number" id="harga_kerikil" name="harga_kerikil"required >
+
+                            <label for="harga_pipa"> pipa PVC 4 (Rp): </label>
+                            <input type="number" id="harga_pipa" name="harga_pipa" required >
+
+                            <label for="harga_semen"> Semen Portland (Rp): </label>
+                            <input type="number" id="harga_semen" name="harga_semen" required >
+
+                            <label for="harga_pasir"> Pasir Beton (Rp): </label>
+                            <input type="number" id="harga_pasir" name="harga_pasir" required >
+
+                            <label for="harga_besi"> Besi Beton(polos/ulir) (Rp): </label>
+                            <input type="number" id="harga_besi" name="harga_besi" required >
+
+                            <label for="harga_kawat"> Kawat Ikat (Rp): </label>
+                            <input type="number" id="harga_kawat" name="harga_kawat" required >
+
+                            <label for="harga_papan"> Papan Kayu bagesting (Rp): </label>
+                            <input type="number" id="harga_papan" name="harga_papan" required >
+
+                            <label for="harga_paku"> Paku 5 cm - 12cm (Rp): </label>
+                            <input type="number" id="harga_paku" name="harga_paku" required >
+
+                            <label for="harga_minyak"> Minyak bekisting (Rp): </label>
+                            <input type="number" id="harga_minyak" name="harga_minyak" required >
+
+                            <label for="harga_balok"> Balok Kayu begesting (Rp): </label>
+                            <input type="number" id="harga_balok" name="harga_balok" required >
+
+                            <label for="harga_plywood"> Plywood tebal 9 mm (Rp): </label>
+                            <input type="number" id="harga_plywood" name="harga_plywood" required >
+
+                            <label for="harga_dolken"> Dolken bambu panjang 4 m (Rp): </label>
+                            <input type="number" id="harga_dolken" name="harga_dolken" required >
+                            
+                            <label for="harga_air"> Air (Rp): </label>
+                            <input type="number" id="harga_air" name="harga_air" required>
+
+                           
+                                
+                        </form>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">3</span>
+                        <span class="title">Rincian Pekerja</span>
+                        <span class="arrow">&#9654;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <form>
+                            <label for="Pekerja"> Pekerja (Rp): </label>
+                            <input type="number" id="Pekerja" name="Pekerja" required >
+
+                            <label for="Tukang_batu"> Tukang batu (Rp): </label>
+                            <input type="number" id="Tukang_batu" name="Tukang_batu" required >
+
+                            <label for="Kepala_tukang"> Kepala Tukang (Rp): </label>
+                            <input type="number" id="Kepala_tukang" name="Kepala_tukang"required >
+
+                            <label for="Mandor"> Mandor (Rp): </label>
+                            <input type="number" id="Mandor" name="Mandor" required >
+                            
+
+                        </form>
+                    </div>
+                </div>
+            </form>
+            <div class="output-containe">
+                <h3> Rincian Bahan yang Diperlukan</h3>
+                <div id="output-bahan">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bahan</th>
+                                <th>Jumlah Bahan yang Diperlukan</th>
+                                <th>Satuan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bahan-table-body">
+                            <tr>
+                            <td>Buis Beton</td>
+                            <td></td>
+                            <td>buah</td>
+                        </tr>
+                        <tr>
+                            <td>Batu Kosong</td>
+                            <td></td>
+                            <td>m³</td>
+                        </tr>
+                        <tr>
+                            <td>Kerikil</td>
+                            <td></td>
+                            <td>m³</td>
+                        </tr>
+                        <tr>
+                            <td>Pipa Pvc 4</td>
+                            <td></td>
+                            <td>btg</td>
+                        </tr>
+                        <tr>
+                            <td>Semen Portlan</td>
+                            <td></td>
+                            <td>sak</td>
+                        </tr>
+                        <tr>
+                            <td>Pasir Beton</td>
+                            <td></td>
+                            <td>m³</td>
+                        </tr>
+                        <tr>
+                            <td>Besi Beton</td>
+                            <td></td>
+                            <td>kg</td>
+                        </tr>
+                        <tr>
+                            <td>Kawat Ikat</td>
+                            <td></td>
+                            <td>kg</td>
+                        </tr>
+                        <tr>
+                            <td>Papan Kayu Begesting</td>
+                            <td></td>
+                            <td>m³</td>
+                        </tr>
+                        <tr>
+                            <td>Paku 5 cm - 12 cm</td>
+                            <td></td>
+                            <td>kg</td>
+                        </tr>
+                        <tr>
+                            <td>Minyak Begesting</td>
+                            <td></td>
+                            <td>liter</td>
+                        </tr>
+                        <tr>
+                            <td>Balok Kayu Begesting</td>
+                            <td></td>
+                            <td>m³</td>
+                        </tr>
+                        <tr>
+                            <td>Plywood tebal 9mm</td>
+                            <td></td>
+                            <td>lbr</td>
+                        </tr>
+                        <tr>
+                            <td>Dolken Bambu Panjang 4m</td>
+                            <td></td>
+                            <td>batang</td>
+                        </tr>
+                        <tr>
+                            <td>Air</td>
+                            <td></td>
+                            <td>liter</td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+            
+            <div class="output-container">
+                <h3>Rincian Tenaga Kerja yang diperlukan</h3>
+                <div id="output-pekerja">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pekerja</th>
+                                <th>Jumlah Tenaga yang Diperlukan</th>
+                                <th>Satuan </th>
+                            </tr>
+                        </thead>
+                        <tbody id="pekerja-table-body">
+                            <tr>
+                                
+                                <td>Pekerja</td>
+                                <td></td>
+                                <td>Orang per Hari</td>
+                            </tr>
+                            <tr>
+                                <td>Tukang batu</td>
+                                <td></td>
+                                <td>Orang per Hari</td>
+                            </tr>
+                            <tr>
+                                <td>Kepala Tukang</td>
+                                <td></td>
+                                <td>Orang per Hari</td>
+                            </tr>
+                            <tr>
+                                <td>Mandor</td>
+                                <td></td>
+                                <td>Orang per Hari</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        <script src="JavaScript/javascript.js"></script>
+        <script src="JavaScript/PerhitunganSumur.js"></script>
+        <script src="JavaScript/Rabjs/RabSumur.js"></script>
+    </body>
+</html>

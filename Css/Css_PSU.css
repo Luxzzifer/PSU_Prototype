@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    background-color: #4CAF50; /* Warna latar belakang hijau */
+    color: white; /* Warna teks putih */
+    padding: 12px 24px; /* Padding untuk memperbesar tombol */
+    font-size: 16px; /* Ukuran font */
+    border: none; /* Menghilangkan border */
+    border-radius: 8px; /* Membuat sudut tombol melengkung */
+    cursor: pointer; /* Menampilkan pointer saat hover */
+    transition: background-color 0.3s ease; /* Efek transisi */
+}
+
+.button-container button:hover {
+    background-color: #45a049; /* Warna saat tombol di-hover */
+}
+
+.button-container button:active {
+    background-color: #3e8e41; /* Warna saat tombol ditekan */
+    transform: scale(0.98); /* Efek mengecil saat ditekan */
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat for a modern look */
+    font-size: 14px; /* Base font size for readability */
+    line-height: 1.6; /* Improve text readability */
+    color: #333; /* Darker text for better contrast */
+    margin: 0;
+    padding: 0;
+}
+
+
+.custom-select{
+    position: relative;
+    width: 200px;
+}
+
+.custom-select select{
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+}
+
+#selected-pattern{
+    margin-top: 10px;
+}
+
+#selected-pattern img{
+    width: 100px;
+    height: auto;
+}
+
+/* Updated Topbar styles */
+.topbar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: calc(100% - 250px); /* Adjust width to account for the sidebar */
+    left: 250px; /* Align topbar with the sidebar */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal; /* Adjust font weight for a cleaner look */
+}
+
+.topbar .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.topbar .user-info span {
+    margin-right: 20px;
+    font-size: 16px; /* Adjust font size for better readability */
+}
+
+.topbar .user-info a {
+    color: white;
+    text-decoration: none;
+    background-color: #45a049;
+    padding: 8px 15px; /* Increase padding for better clickability */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.topbar .user-info a:hover {
+    background-color: #399140;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+}
+
+* Adjustments when the sidebar is closed */
+.sidebar.closed ~ .container .topbar {
+    width: calc(100% - 50px); /* Adjust width when sidebar is closed */
+}
+
+/* Adjustments when the sidebar is open */
+.sidebar ~ .container .topbar {
+    width: calc(100% - 250px); /* Adjust width based on the sidebar width */
+}
+
+
+.sidebar {
+    width: 250px; 
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+/* Sidebar when closed */
+.sidebar.closed {
+    width: 50px; /* Width when closed */
+}
+
+/* Responsive adjustments for Topbar */
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%; /* Full width on small screens */
+        left: 0; /* Remove left offset */
+        padding: 10px;
+    }
+
+    .topbar .user-info {
+        margin-top: 10px;
+    }
+
+    .topbar .user-info span {
+        margin-right: 10px;
+        font-size: 14px; /* Smaller font size on small screens */
+    }
+
+    .topbar .user-info a {
+        padding: 5px 10px; /* Adjust padding for small screens */
+        font-size: 14px; /* Adjust font size for small screens */
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    nav li {
+      display: block;
+      margin-right: 0;
+    }
+  
+    nav a {
+      padding: 15px;
+    }
+  }
+
+
+/* Sidebar styles */
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Gradient background */
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.sidebar h2 {
+    color: #ecf0f1; /* Light text */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold; /* Bolder heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+}
+
+.sidebar a {
+    display: block;
+    color: #ecf0f1; /* Light text */
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px; /* Slightly larger font size */
+    font-weight: 500; /* Medium weight for better readability */
+    border-radius: 5px;
+    margin: 5px 15px; /* Add spacing around the links */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+}
+
+.sidebar a:hover {
+    background-color: #1abc9c; /* Bright hover color */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Toggle button styles */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001; /* Ensure it's above the sidebar and content */
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Adjust width as needed */
+    height: 100vh;
+    background-color: #f0f0f0;
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar.closed {
+    transform: translateX(-250px); /* Hide sidebar */
+}
+
+/* Content styles */
+.container {
+    margin-left: 320px; /* Adjust margin based on sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    
+}
+
+.container.sidebar-closed {
+    margin-left: 0; /* Remove margin when sidebar is closed */
+}
+
+/* Content styles */
+.container {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar a {
+        font-size: 16px;
+    }
+
+    .container {
+        margin-left: 220px;
+    }
+}
+
+
+
+
+/* Content styles */
+.container {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+/* Submit button styles */
+.submit-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.submit-button button {
+    background-color: #27ae60; /* Green */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button button:hover {
+    background-color: #2ecc71; /* Lighter green */
+}
+
+/* Accordion styles */
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.accordion-header {
+    padding: 15px;
+    background-color: #ecf0f1; /* Light background */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.accordion-header .icon {
+    background-color: #27ae60; /* Green */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.accordion-content {
+    padding: 15px;
+    background-color: #f9f9f9; /* Light gray */
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+}
+
+.accordion-header.active .arrow {
+    transform: rotate(90deg);
+}
+
+.accordion-header.active + .accordion-content {
+    display: block;
+}
+
+.accordion-header .arrow {
+    transition: transform 0.3s ease;
+}
+
+.accordion-content label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.accordion-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.accordion-content input:focus {
+    border-color: #27ae60; /* Green */
+}
+
+.accordion-content input::-webkit-outer-spin-button,
+.accordion-content input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Hide the spinners */
+    margin: 0;
+}
+
+/* General table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure table is above other elements */
+  }
+  
+  /* Table header styling */
+  thead {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  thead th {
+    padding: 13px 15px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Table body styling */
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  
+  tbody td {
+    padding: 10px 15px;
+    text-align: left;
+  }
+  
+  /* Adding borders to cells */
+  th, td {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  /* Hover effect for rows */
+  tbody tr:hover {
+    background-color: #e9f5e9;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+  
+    thead {
+      font-size: 14px;
+    }
+  
+    tbody td {
+      padding: 8px 10px;
+    }
+  }
+  
+  /* Specific styling for output-bahan and output-pekerja */
+  #output-bahan,
+  #output-pekerja {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  #output-bahan table,
+  #output-pekerja table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  #output-bahan table th,
+  #output-bahan table td,
+  #output-pekerja table th,
+  #output-pekerja table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  #output-bahan table th,
+  #output-pekerja table th {
+    background-color: #27ae60; /* Green */
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  #output-bahan table tr:nth-child(even),
+  #output-pekerja table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #output-bahan table tr:hover,
+  #output-pekerja table tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  #output-bahan table td,
+  #output-pekerja table td {
+    font-size: 16px; /* Consistent font size for readability */
+  }
+  
+  /* Container styles */
+  .container {
+    margin-left: calc(250px + 20px); /* Adjusted margin based on sidebar width and padding */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    overflow-y: auto; 
+  }
+
+
+  

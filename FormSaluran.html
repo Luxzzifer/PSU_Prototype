@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Perhitungan Sumur Resapan</title>
+    <link rel="stylesheet" href="Css/Css_PSU.css">
+</head>
+<body>
+    <div class="topbar">
+        <h1>PSU</h1>
+        <div class="usern-info">
+            <span>Selamat Datang</span>
+        </div>
+    </div>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#">Dashboard</a>
+        <a href="FormSumurResapan.html">Sumur Resapan</a>
+        <a href="FormSaluran.html">Saluran</a>
+        <a href="FormJalanPaving.html">Jalan Paving</a>
+    </div>
+    <div class="container">
+        <h2>Formulir Perhitungan Sumur Resapan</h2>
+        <form>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">1</span>
+                        <span class="title">Data</span>
+                        <span class="arrow">&#9654;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <label for="U-Ditch">U-Ditch 30.30.120 (m'): </label>
+                        <input type="number" id="U-Ditch" name="U-Ditch" required>
+
+                        <label for="Cover-U-Ditch">Cover U-Ditch 30.60 (m'): </label>
+                        <input type="number" id="Cover-U-Ditch" name="Cover-U-Ditch" required>
+
+                        <label for="Buis-U">Buis U 30 (m'): </label>
+                        <input type="number" id="Buis-U" name="Buis-U" required>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">2</span>
+                        <span class="title">Rincian Bahan</span>
+                        <span class="arrow">&#9654;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <label for="harga-U-Ditch">U-Ditch 30.30.120 (Rp): </label>
+                        <input type="number" id="harga-U-Ditch" name="harga-U-Ditch" required>
+
+                        <label for="harga-Cover-U-Ditch">Cover U-Ditch 30.60 (Rp): </label>
+                        <input type="number" id="harga-Cover-U-Ditch" name="harga-Cover-U-Ditch" required>
+
+                        <label for="harga-Buis-U-30">Buis U 30 (Rp): </label>
+                        <input type="number" id="harga-Buis-U-30" name="harga-Buis-U-30" required>
+
+                        <label for="Crane-5-ton">Crane Mobile 5 Ton (Rp): </label>
+                        <input type="number" id="Crane 5 ton" name="Crane 5 ton" required>
+
+                        <label for="Batu-Bata">Batu Bata Lokal (Rp): </label>
+                        <input type="number" id="Batu Bata" name="Batu Bata" required>
+
+                        <label for="harga-Semen">Portland Semen (Rp): </label>
+                        <input type="number" id="harga-Semen" name="harga-Semen" required>
+
+                        <label for="harga-Pasir-Pasang">Pasir Pasang (Rp): </label>
+                        <input type="number" id="harga-Pasir-Pasang" name="harga-Pasir-Pasang" required>
+
+                        <label for="harga-Pasir-Urug">Pasir Urug (Rp): </label>
+                        <input type="number" id="harga-Pasir-Urug" name="harga-Pasir-Urug" required>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">3</span>
+                        <span class="title">Rincian Pekerja</span>
+                        <span class="arrow">&#9654;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <label for="Pekerja">Pekerja (Rp): </label>
+                        <input type="number" id="Pekerja" name="Pekerja" required>
+
+                        <label for="Tukang-batu">Tukang Batu (Rp): </label>
+                        <input type="number" id="Tukang-batu" name="Tukang-batu" required>
+
+                        <label for="Kepala-tukang">Kepala Tukang (Rp): </label>
+                        <input type="number" id="Kepala-tukang" name="Kepala-tukang" required>
+
+                        <label for="Mandor">Mandor (Rp): </label>
+                        <input type="number" id="Mandor" name="Mandor" required>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="output-container">
+            <h3>Rincian Bahan yang Diperlukan</h3>
+            <div id="output-bahan">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bahan</th>
+                            <th>Jumlah Bahan yang Diperlukan</th>
+                            <th>Satuan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bahan-table-body">
+                        <tr>
+                            <td>U-Ditch 30.30.120</td>
+                            <td></td>
+                            <td>unit</td>
+                        </tr>
+                        <tr>
+                            <td>Cover U-Ditch 30.60</td>
+                            <td></td>
+                            <td>unit</td>
+                        </tr>
+                        <tr>
+                            <td>Buis U 30</td>
+                            <td></td>
+                            <td>unit</td>
+                        </tr>
+                        <tr>
+                            <td>Crane mobile 5 ton</td>
+                            <td></td>
+                            <td>Jam</td>
+                        </tr>
+                        <tr>
+                            <td>Batu Bata Lokal</td>
+                            <td></td>
+                            <td>Buah</td>
+                        </tr>
+                        <tr>
+                            <td>Portland Semen</td>
+                            <td></td>
+                            <td>Sak</td>
+                        </tr>
+                        <tr>
+                            <td>Pasing Pasang</td>
+                            <td></td>
+                            <td>m³</td>
+                        </tr>
+                        <tr>
+                            <td>Pasir Urug</td>
+                            <td ></td>
+                            <td>m³</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="output-container">
+            <h3>Rincian Tenaga Kerja yang Diperlukan</h3>
+            <div id="output-pekerja">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tenaga Kerja</th>
+                            <th>Jumlah Tenaga yang Diperlukan</th>
+                            <th>Satuan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pekerja-table-body">
+                        <tr>
+                            <td>Pekerja</td>
+                            <td></td>
+                            <td>Orang per Hari</td>
+                        </tr>
+                        <tr>
+                            <td>Tukang Batu</td>
+                            <td></td>
+                            <td>Orang per Hari</td>
+                        </tr>
+                        <tr>
+                            <td>Kepala Tukang</td>
+                            <td></td>
+                            <td>Orang per Hari</td>
+                        </tr>
+                        <tr>
+                            <td>Mandor</td>
+                            <td></td>
+                            <td>Orang per Hari</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="javaScript/javascript.js"></script>
+    <script src="javaScript/perhitunganSaluran.js"></script>
+
+</body>
+</html>
